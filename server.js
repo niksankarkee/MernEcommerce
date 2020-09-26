@@ -17,6 +17,8 @@ const URI = process.env.MONGODB_URI;
 // Routers
 app.use("/user", require("./routes/userRouter"));
 app.use("/api", require("./routes/categoryRouter"));
+app.use("/api", require("./routes/upload"));
+app.use("/api", require("./routes/productRouter"));
 
 mongoose.connect(
   URI,
