@@ -6,6 +6,7 @@ const {
   userLogout,
   getUser,
   addCart,
+  getHistory
 } = require("../controllers/userController");
 const { auth } = require("../middleware/auth");
 
@@ -20,5 +21,7 @@ router.get("/refresh_token", refreshToken);
 router.get("/infor", auth, getUser);
 
 router.patch("/addcart", auth, addCart);
+
+router.get("/history", auth, getHistory);
 
 module.exports = router;
