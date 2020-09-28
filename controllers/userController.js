@@ -126,17 +126,17 @@ exports.addCart = async (req, res) => {
 
 exports.getHistory = async (req, res) => {
   try {
-    const history = await Payments.find({user_id: req.user.id})
+    const history = await Payments.find({ user_id: req.user.id });
 
     res.json(history);
   } catch (err) {
     return res.status(500).json({ msg: err.message });
   }
-}
+};
 
 const createAccessToken = (user) => {
-  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" });
+  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "11s" });
 };
 const createRefreshToken = (user) => {
-  return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "7d" });
+  return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "1d" });
 };

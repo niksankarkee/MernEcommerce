@@ -20,7 +20,7 @@ exports.createCategory = async (req, res) => {
     }
     const newCategory = new Category({ name });
     await newCategory.save();
-    res.json("Check admin success");
+    res.json({ msg: "Category Created Successfully." });
   } catch (err) {
     return res.status(500).json({ msg: err.message });
   }
