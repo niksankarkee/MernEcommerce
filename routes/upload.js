@@ -11,8 +11,8 @@ cloudinary.config({
   api_secret: process.env.CLOUD_API_SECRET,
 });
 
-// Upload image  auth, authAdmin, add in future
-router.post("/upload", (req, res) => {
+// Upload image  
+router.post("/upload", auth, authAdmin, (req, res) => {
   try {
     console.log(req.files);
     if (!req.files || Object.keys(req.files).length === 0) {
@@ -51,8 +51,8 @@ router.post("/upload", (req, res) => {
   }
 });
 
-// Delete image auth, authAdmin,
-router.post("/destroy", (req, res) => {
+// Delete image 
+router.post("/destroy", auth, authAdmin, (req, res) => {
   try {
     const { public_id } = req.body;
     if (!public_id) {
